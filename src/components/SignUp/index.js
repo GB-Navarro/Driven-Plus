@@ -44,7 +44,9 @@ export default function SingUp(){
                     <input placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                     <button onClick={register}>Cadastrar</button>
                     <TextBox>
-                        <p>Já possui uma conta? Entre</p>
+                        <Link to="/">
+                            <p>Já possui uma conta? Entre</p>
+                        </Link>
                     </TextBox>
                 </Container>
             </RegisterSection>

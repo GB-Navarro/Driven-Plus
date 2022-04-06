@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import axios from "axios";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
 
     function getAcess(){
        const URL = "https://mock-api.driven.com.br/api/v4/driven-plus/auth/login";
@@ -18,6 +21,7 @@ export default function Login(){
        const promisse = axios.post(URL, user);
        promisse.then((response) => {
             console.log(response);
+            navigate("/subscriptions")
        })
        promisse.catch((err) => {
             console.log("Deu Xabu!");
@@ -38,7 +42,9 @@ export default function Login(){
                         </InputsContainer>
                         <button onClick={getAcess}>Entrar</button>
                         <TextBox>
-                            <p>Não tem uma conta? Cadastre-se</p>
+                            <Link to="/sign-up">
+                                <p>Não tem uma conta? Cadastre-se</p>
+                            </Link>
                         </TextBox>
                     </Main>
                 </LoginContainer>
