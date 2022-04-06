@@ -2,6 +2,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import TokenContext from "../../Contexts/TokenContext";
 
 export default function Login(){
 
@@ -9,6 +11,8 @@ export default function Login(){
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
+
+    const {token, setToken} = useContext(TokenContext);
 
     function getAcess(){
        const URL = "https://mock-api.driven.com.br/api/v4/driven-plus/auth/login";
@@ -21,7 +25,15 @@ export default function Login(){
        const promisse = axios.post(URL, user);
        promisse.then((response) => {
             console.log(response);
-            navigate("/subscriptions")
+            setToken(response.data.token);
+            if(response.data.membership === null){
+                console.log("Não é membro");
+                navigate("/subscriptions");
+            }else{
+                navigate("/subscriptionplan")
+            }
+            
+            console.log(token);
        })
        promisse.catch((err) => {
             console.log("Deu Xabu!");
