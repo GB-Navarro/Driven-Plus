@@ -67,7 +67,7 @@ function Subscription(props){
             <SubscriptionsBox>
                 <img src={props.src}/>
                 <PriceBox>
-                    <p>{props.price}</p>
+                    <p>R${props.price}</p>
                 </PriceBox>
             </SubscriptionsBox>
         </>
@@ -102,19 +102,19 @@ const SubscriptionsContainer = styled.div`
 `
 const SubscriptionsBox = styled.div`
     width:100%;
-    border: 1px solid #FFFFFF;
-    border-radius: 5px;
+    border: 3px solid #7E7E7E;
+    border-radius: 12px;
     margin-bottom:10px;
     display:flex;
-    justify-content: space-between;
-    h1{
-        font-size:72px;
-        margin-left:16px;
-        padding: 42px 0px 42px 0px;
+    img{
+        margin: 35px 10px 35px 10px;
+        padding-right: 40px;
     }
 `
 const PriceBox = styled.div`
     display:flex;
     align-items: center;
     margin-right:16px;
+    font-size:24px;
+    font-weight: 700;
 `
