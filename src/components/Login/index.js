@@ -24,19 +24,15 @@ export default function Login(){
 
        const promisse = axios.post(URL, user);
        promisse.then((response) => {
-            console.log(response);
             setToken(response.data.token);
             if(response.data.membership === null){
-                console.log("Não é membro");
                 navigate("/subscriptions");
             }else{
                 navigate("/subscriptionplan")
             }
-            
-            console.log(token);
        })
        promisse.catch((err) => {
-            console.log("Deu Xabu!");
+            console.log("Deu xabu no login!");
        }) 
     }
     return(

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function SubscriptionID(){
+export default function SubscriptionID(props){
     return(
         <>
             <SubscriptionSection>
@@ -9,8 +9,8 @@ export default function SubscriptionID(){
                 </SubscriptionHeader>
                 <SubscriptionMain>
                     <SubscriptionMainTop>
-                        <span>D+</span>
-                        <p>Driven Plus</p>
+                        <img src={props.src}/>
+                        <p>{props.name}</p>
                     </SubscriptionMainTop>
                     <SubscriptionMainMid>
                         <div>

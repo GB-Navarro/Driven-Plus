@@ -23,11 +23,10 @@ export default function SingUp(){
         };
         const promisse = axios.post(URL, user);
         promisse.then((response) => {
-            console.log(response);
             navigate("/")
         })
         promisse.catch((err) => {
-            console.log("Deu Xabu!");
+            console.log("Deu xabu no cadastro!");
         })
     }
     
